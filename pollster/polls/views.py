@@ -28,6 +28,7 @@ def vote(request,question_id):
     except (KeyError,Choice.DoesNotExist):
         return render(request,'polls/details.html',{ 'question':question })
     else:
+        # return HttpResponse(request.POST['choice'])
         choice.votes += 1
         choice.save()
         return HttpResponseRedirect(reverse('polls:result',args=(question.id,)))

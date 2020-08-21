@@ -8,13 +8,14 @@
         <div class="input-group">
             <div class="input-group-prepend">
             <div class="input-group-text">
-                <input type="checkbox" aria-label="checkbox button for following text input">
+                <input type="radio" name="choiceRadio" aria-label="radio button for following text input">
             </div>
             </div>
+            <input type="hidden" name="choice" value="{{ choice.id }}">
             <input type="text" disabled value="{{ choice.choise_text }}" class="form-control" aria-label="Text input with radio button">
         </div>
         {% endfor %}
         <input type="submit" class="btn btn-danger mt-2" value="vote" />
+        <a href="{% url 'polls:index' %}" class="btn btn-primary mt-2">Polls</a>
     </form>
-    <a href="{% url 'polls:index' %}" class="btn btn-primary">Polls</a>
 {% endblock %}

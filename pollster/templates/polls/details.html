@@ -2,7 +2,8 @@
 {% block content %}
     <h1 class="text-center mb-3">Question Details {{ question.id }}</h1>
     <h3 class="text-center mb-3">{{ question.question_text }}</h3>
-    <form>
+    <form method="POST" action="{% url 'polls:vote' question.id %}" class="mb-3">
+        {% csrf_token %}
         {% for choice in question.choice_set.all %}
         <div class="input-group">
             <div class="input-group-prepend">
@@ -15,4 +16,5 @@
         {% endfor %}
         <input type="submit" class="btn btn-danger mt-2" value="vote" />
     </form>
+    <a href="{% url 'polls:index' %}" class="btn btn-primary">Polls</a>
 {% endblock %}

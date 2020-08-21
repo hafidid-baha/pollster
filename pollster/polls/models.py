@@ -9,9 +9,9 @@ class Question(models.Model):
         return self.question_text
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question,on_delete=models.CASCAD)
+    question = models.ForeignKey(Question,on_delete=models.CASCADE)
     choise_text = models.CharField(max_length=200)
-    votes = models.IntegerFiels(default=0)
+    votes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.choise_text
